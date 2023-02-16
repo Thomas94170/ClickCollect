@@ -9,6 +9,7 @@ import {
   ApolloProvider,
   gql,
 } from "@apollo/client";
+import FiltersProvider from "./context";
 
 const client = new ApolloClient({
   uri: "http://localhost:4500/graphQl",
@@ -19,7 +20,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <FiltersProvider>
+        <App />
+      </FiltersProvider>
     </ApolloProvider>
   </React.StrictMode>
 );
